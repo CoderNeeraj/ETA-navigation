@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETA Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 120vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+        }
+        input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>ETA Prediction</h2>
+        <form action="/" method="POST">
+            <label for="start_lat">Start Latitude:</label>
+            <input type="text" id="start_lat" name="start_lat" required>
+
+            <label for="start_lon">Start Longitude:</label>
+            <input type="text" id="start_lon" name="start_lon" required>
+
+            <label for="end_lat">End Latitude:</label>
+            <input type="text" id="end_lat" name="end_lat" required>
+
+            <label for="end_lon">End Longitude:</label>
+            <input type="text" id="end_lon" name="end_lon" required>
+
+            <label for="num_turns">Number of Turns:</label>
+            <input type="text" id="num_turns" name="num_turns" required>
+
+            <label for="num_traffic_lights">Number of Traffic Lights:</label>
+            <input type="text" id="num_traffic_lights" name="num_traffic_lights" required>
+
+            <label for="time_of_day">Time of Day (0-23):</label>
+            <input type="text" id="time_of_day" name="time_of_day" required>
+
+            <label for="day_of_week">Day of the Week (0-6):</label>
+            <input type="text" id="day_of_week" name="day_of_week" required>
+
+            <label for="avg_speed">Average Speed (km/h):</label>
+            <input type="text" id="avg_speed" name="avg_speed" required>
+
+            <label for="current_traffic">Current Traffic (0.0-1.0):</label>
+            <input type="text" id="current_traffic" name="current_traffic" required>
+
+            <button type="submit">Predict ETA</button>
+        </form>
+
+        <div class="result">
+            <p>{{ prediction }}</p>
+            <p>{{ distance }}</p>
+        </div>
+    </div>
+</body>
+</html>
